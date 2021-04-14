@@ -33,7 +33,7 @@ public class Main {
         System.out.println("|      Instanciation client     |");
         System.out.println("=========================================");
 
-        Client client = new Client("Paul","Weller","baker Street","Londres");
+        Client client = new Client("Paul","Weller","Baker Street","Londres");
         Client client1 = new Client("White", "Jack","Detroit");
         Client client2 =new Client("Claypool","Les","San Fransisco");
         Client client3 =new Client("Thunders","Johnny","New York");
@@ -44,16 +44,19 @@ public class Main {
         tab.add(client2);
         tab.add(client2);
 
+        String td = "| %-15s | %-15s | %-15s | %-15s |%n";
+
+        System.out.format("+-----------------+-----------------+-----------------+-----------------+%n");
+        System.out.format("| Prénom          |    Nom          |  Adresse        |   Ville         |%n");
+        System.out.format("+-----------------+-----------------+-----------------+-----------------+%n");
+
+
         for (Client i : tab) {
-            System.out.println("Nom :"+i.getNom());
-            System.out.println("Prénom :"+i.getPrenom());
-            if ( i.getAdresse() != null){
-                System.out.println("Adresse :"+i.getAdresse());
-            }
-            System.out.println("Ville :"+i.getVille());
-            System.out.println( "                             ");
+            System.out.format(td,i.getPrenom() ,i.getNom(),
+                    ( i.getAdresse() != null)?i.getAdresse():"",i.getVille());
         }
 
+        System.out.format("+-----------------+-----------------+-----------------+-----------------+%n");
 
     }
 }
